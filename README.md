@@ -49,7 +49,7 @@ This repo contains:
 ### To-do list
 
 - [x] training / inference scripts
-- [] huggingface ckpts
+- [ ] huggingface ckpts
 
 ## Preparation
 
