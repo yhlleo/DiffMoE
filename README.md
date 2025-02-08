@@ -27,7 +27,7 @@ _**[Minglei Shi<sup>1*</sup>](https://github.com/shiml20/), [Ziyang Yuan<sup>1*<
 
 
 ## 🔥 Updates
-- __[2024.12.10]__: Release the [project page](https://shiml20.github.io/DiffMoE/) of DiffMoE
+- __[2025.x.x]__: Release the [project page](https://shiml20.github.io/DiffMoE/) of DiffMoE
 
 <!-- This is a PyTorch/GPU implementation of the paper [DiffMoE](xxxx) -->
 
