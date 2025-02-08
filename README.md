@@ -8,7 +8,7 @@
 
 <div align="center">
 <div align="center" style="margin-top: 0px; margin-bottom: 0px;">
-<!-- <img src=https://github.com/user-attachments/assets/b33c5b67-3881-4fa3-b853-f932eebc9c50 width="50%"/> -->
+<img src="figs/logo.png" width="50%"/>
 </div>
 
 ### [<a href="https://arxiv.org/abs/xxx" target="_blank">arXiv</a>] [<a href="https://shiml20.github.io/DiffMoE/" target="_blank">Project Page</a>] [<a href="https://huggingface.co/datasets/KwaiVGI/DiffMoE/" target="_blank">Model</a>]
