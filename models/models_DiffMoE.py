@@ -5,7 +5,7 @@ import math
 from timm.models.vision_transformer import PatchEmbed
 import torch.nn.functional as F
 import torch.distributed as dist
-from modules import get_2d_sincos_pos_embed, Attention, modulate, TimestepEmbedder, LabelEmbedder, FinalLayer, MoeMLP, Mlp
+from .modules import get_2d_sincos_pos_embed, Attention, modulate, TimestepEmbedder, LabelEmbedder, FinalLayer, MoeMLP, Mlp
 
 
 

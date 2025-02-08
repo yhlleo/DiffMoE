@@ -5,7 +5,7 @@ import numpy as np
 import math
 from timm.models.vision_transformer import PatchEmbed, Mlp
 import torch.nn.functional as F
-from modules import get_2d_sincos_pos_embed, Attention, modulate, TimestepEmbedder, LabelEmbedder, FinalLayer, MoeMLP, Mlp
+from .modules import get_2d_sincos_pos_embed, Attention, modulate, TimestepEmbedder, LabelEmbedder, FinalLayer, MoeMLP, Mlp
 
 
 

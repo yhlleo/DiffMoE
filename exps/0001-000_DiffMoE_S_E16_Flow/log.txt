@@ -1,0 +1,4 @@
+[[34m2025-02-08 10:14:26[0m] Experiment directory created at exps//0001-000_DiffMoE_S_E16_Flow
+[[34m2025-02-08 10:14:26[0m] Set up tensorboard SummaryWriter
+[[34m2025-02-08 10:14:28[0m] DiT Parameters: 140,191,616
+[[34m2025-02-08 10:14:31[0m] train with rectified flow

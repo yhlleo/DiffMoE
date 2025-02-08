@@ -1,10 +1,10 @@
 # example train
-CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun \
+CUDA_VISIBLE_DEVICES=0 torchrun \
     --nnodes=1 \
-    --nproc_per_node=4 \
+    --nproc_per_node=1 \
     --master_port=12345 \
     train.py \
-    --config ../config/000_DiffMoE_S_E16_Flow.yaml
+    --config config/000_DiffMoE_S_E16_Flow.yaml
 
 # example cache
 torchrun --nproc_per_node=8 --nnodes=1 --node_rank=0 --master_port=12345 \

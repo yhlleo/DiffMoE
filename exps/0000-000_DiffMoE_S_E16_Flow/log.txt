@@ -1,0 +1,2 @@
+[[34m2025-02-08 10:13:52[0m] Experiment directory created at exps//0000-000_DiffMoE_S_E16_Flow
+[[34m2025-02-08 10:13:52[0m] Set up tensorboard SummaryWriter
