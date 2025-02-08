@@ -1,4 +1,6 @@
-# DiffMoE: Dynamic Token Selection for Scalable Diffusion Transformers <br><sub>Official PyTorch Implementation</sub>
+<!-- # DiffMoE: Dynamic Token Selection for Scalable Diffusion Transformers <br><sub>Official PyTorch Implementation</sub> -->
+
+# DiffMoE: Dynamic Token Selection for Scalable Diffusion Transformers
 
 <!-- [![arXiv](https://img.shields.io/badge/arXiv%20paper-2406.11838-b31b1b.svg)](https://arxiv.org/abs/2406.11838)&nbsp; -->
 <!-- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/autoregressive-image-generation-without/image-generation-on-imagenet-256x256)](https://paperswithcode.com/sota/image-generation-on-imagenet-256x256?p=autoregressive-image-generation-without) -->
@@ -8,7 +10,7 @@
 
 <div align="center">
 <div align="center" style="margin-top: 0px; margin-bottom: 0px;">
-<img src="figs/logo.png" width="50%"/>
+<img src="figs/logo.png" width="65%"/>
 </div>
 
 ### [<a href="https://arxiv.org/abs/xxx" target="_blank">arXiv</a>] [<a href="https://shiml20.github.io/DiffMoE/" target="_blank">Project Page</a>] [<a href="https://huggingface.co/datasets/KwaiVGI/DiffMoE/" target="_blank">Model</a>]
