@@ -22,8 +22,17 @@ _**[Minglei Shi<sup>1*</sup>](https://github.com/shiml20/), [Ziyang Yuan<sup>1*<
 </div>
 
 <p align="center">
-  <img src="figs/Method.png" width="720">
+  <img src="figs/teaser.png" width="720">
 </p>
+
+Token Accessibility and Dynamic Computation. (a) Token accessibility levels from token isolation to crosssample interaction. Colors represent tokens in different samples, ti indicates noise levels. (b) Performance-accessibility analysis across architectures. (c) Computational dynamics during diffusion sampling, showing adaptive computation from noise to image. (d) Class-wise computation allocation from hard (technical diagrams) to easy (natural photos) tasks. Results from DiffMoE-L-E16-Flow (700K).
+
+
+<p align="center">
+  <img src="figs/method.png" width="720">
+</p>
+
+DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global token pool, where each expert maintains a fixed training capacity of $C^{E_i}_{train} = 1$. During inference, a dynamic capacity predictor adaptively routes tokens across different sampling steps and conditions. Different colors denote tokens from distinct samples, while ti represents corresponding noise levels.
 
 
 ## 🔥 Updates
