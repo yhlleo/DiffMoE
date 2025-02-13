@@ -89,12 +89,17 @@ conda activate diffmoe
 <!-- python util/download.py -->
 <!-- ``` -->
 
-For convenience, our pre-trained MAR models can be downloaded directly here as well:
+For convenience, our pre-trained baseline and DiffMoE models can be downloaded directly here as well:
 
-| MAR Model                                                              | FID-50K | Inception Score | # Average Actice Params | 
-|------------------------------------------------------------------------|---------|-----------------|---------|
-| [DiffMoE-L-E16-DDPM](https://www.dropbox.com/scl/fi/f6dpuyjb7fudzxcyhvrhk/checkpoint-last.pth?rlkey=a6i4bo71vhfo4anp33n9ukujb&dl=0) | ???    | ???           | ???    |
-| [DiffMoE-L-E16-Flow](https://www.dropbox.com/scl/fi/pxacc5b2mrt3ifw4cah6k/checkpoint-last.pth?rlkey=m48ovo6g7ivcbosrbdaz0ehqt&dl=0) | ???    | ???           | ???    |
+
+| Model Name                 | # Avg. Act. Params | Training Step | CFG | FID-50K↓  | Inception Score↑ |
+|----------------------------|-------------------------|-------------|-----|---------|-----------------|
+| [TC-DiT-L-E16-Flow](x)    | 458M                    | 700K        | 1.0 | 19.06   | 73.49           |
+| [EC-DiT-L-E16-Flow](x)    | 458M                    | 700K        | 1.0 | 16.12   | 82.37           |
+| [Dense-DiT-L-Flow](x)     | 458M                    | 700K        | 1.0 | 17.01   | 1.0            |
+| [Dense-DiT-XL-Flow](x)    | 675M                    | 700K        | 1.0 | 14.77   | 1.0            |
+| [DiffMoE-L-E16-Flow](x)   | 454M                    | 700K        | 1.0 | 14.41   | 88.19           |
+| [DiffMoE-L-E16-Flow](x)   | ???                     | ???         | ??? | ???     | ???            |
 
 
 ### (Optional) Caching VAE Latents
@@ -105,7 +110,7 @@ the VAE latents can be pre-computed and saved to `CACHED_PATH` to save computati
 ```
 torchrun --nproc_per_node=8 --nnodes=1 --node_rank=0 \
 main_cache.py \
---img_size 256 --vae_path pretrained_models/vae/kl16.ckpt --vae_embed_dim 16 \
+--img_size 256 --vae_path stabilityai/sd-vae-ft-mse \
 --batch_size 128 \
 --data_path ${IMAGENET_PATH} --cached_path ${CACHED_PATH}
 ```
@@ -123,7 +128,6 @@ Comeing soon, stay tuned !
 <!-- ```
 python demo/gradio_app.py 
 ``` -->
-
 
 
 ### Training
@@ -145,24 +149,19 @@ Note that this may slightly reduce training speed. -->
 ### Evaluation (ImageNet 256x256)
 Comeing soon, stay tuned !
 
-<!-- Evaluate MAR-B (DiffLoss MLP with 6 blocks and a width of 1024 channels, 800 epochs) with classifier-free guidance:
-```
-torchrun --nproc_per_node=8 --nnodes=1 --node_rank=0 \
-main_mar.py \
---model mar_base --diffloss_d 6 --diffloss_w 1024 \
---eval_bsz 256 --num_images 50000 \
---num_iter 256 --num_sampling_steps 100 --cfg 2.9 --cfg_schedule linear --temperature 1.0 \
---output_dir pretrained_models/mar/mar_base \
---resume pretrained_models/mar/mar_base \
---data_path ${IMAGENET_PATH} --evaluate
-``` -->
+Evaluate DiffMoE:
+
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nnodes=1 --nproc_per_node=8 sample_ddp_feature.py --image-size 256 \
+    --per-proc-batch-size 125 --num-fid-samples 50000 --cfg-scale 1.0 --num-sampling-steps 250 --sample-dir /m2v_intern/shiminglei/DiffMoE/samples \
+    --ckpt exps/EXPNAME/checkpoints/xxxxxx.pt
+
 
 <!-- 
 - Set `--cfg 1.0 --temperature 0.95` to evaluate without classifier-free guidance.
 - Generation speed can be significantly increased by reducing the number of autoregressive iterations (e.g., `--num_iter 64`). -->
 
 ## Acknowledgements
-We thank Zihan, Qiu for helpful discussion. A large portion of codes in this repo is based on [MAR](https://github.com/LTH14/mar), [DiT](https://github.com/facebookresearch/DiT), [DeepSeekMoE](https://github.com/deepseek-ai/DeepSeek-MoE)
+We thank [Zihan, Qiu](https://scholar.google.com/citations?user=24eVHiYAAAAJ&hl=en) for helpful discussion. A large portion of codes in this repo is based on [MAR](https://github.com/LTH14/mar), [DiT](https://github.com/facebookresearch/DiT), [DeepSeekMoE](https://github.com/deepseek-ai/DeepSeek-MoE)
 
 <!-- ## Contact -->
 

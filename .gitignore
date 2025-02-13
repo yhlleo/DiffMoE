@@ -10,8 +10,11 @@ _auto_*
 ckpt/
 log/
 exp/
+pre_trained/
+samples/
 tb*/
 img*/
+**/sample_features/
 local_output*
 *.pth
 *.pth.tar
@@ -19,3 +22,4 @@ local_output*
 *.log
 *.txt
 *.ipynb
+*.npz

@@ -44,12 +44,13 @@ def main(config):
     ema = deepcopy(model).to(device)  # Create an EMA of the model for use after training
     requires_grad(ema, False)
     model = DDP(model.to(device), device_ids=[rank])
+
     if 'rf' not in config.basic:
         config.basic.rf = False  
 
     if config.basic.rf:
         logger.info("train with rectified flow")
-        diffusion = RectifiedFlow()
+        diffusion = RectifiedFlow(model)
     else:
         diffusion = create_diffusion(timestep_respacing="")  # default: 1000 steps, linear noise schedule
 
@@ -128,7 +129,7 @@ def main(config):
                     x = vae.encode(x).latent_dist.sample().mul_(0.18215)
 
             if config.basic.rf:
-                loss_dict = diffusion.forward(model, x, y)
+                loss_dict = diffusion.forward(x, y)
                 loss = loss_dict["loss"].mean()
             else:
                 if 'same_t_per_batch' not in config.basic:

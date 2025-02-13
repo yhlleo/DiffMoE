@@ -8,12 +8,12 @@ pretrained_models = {'DiT-XL-2-512x512.pt', 'DiT-XL-2-256x256.pt'}
 
 def find_model(model_name, is_train=False):
     """
-    Finds a pre-trained DiT model, downloading it if necessary. Alternatively, loads a model from a local path.
+    Finds a pre-trained model, downloading it if necessary. Alternatively, loads a model from a local path.
     """
-    if model_name in pretrained_models:  # Find/download our pre-trained DiT checkpoints
+    if model_name in pretrained_models:  # Find/download our pre-trained checkpoints
         return download_model(model_name)
-    else:  # Load a custom DiT checkpoint:
-        assert os.path.isfile(model_name), f'Could not find DiT checkpoint at {model_name}'
+    else:  # Load a custom checkpoint:
+        assert os.path.isfile(model_name), f'Could not find checkpoint at {model_name}'
         
         start_time = time.time()
 
@@ -25,18 +25,20 @@ def find_model(model_name, is_train=False):
         if "ema" in checkpoint and not is_train:  # supports checkpoints from train.py
             checkpoint = checkpoint["ema"] 
             print("load ema ckpt")
-        elif ("model" in checkpoint) and is_train: 
+        elif "model" in checkpoint and is_train: 
             checkpoint = checkpoint["model"]
             print("load non-ema ckpt")
+    
         return checkpoint
 
 
 def download_model(model_name):
     """
-    Downloads a pre-trained DiT model from the web.
+    Downloads a pre-trained model from the web.
     """
     assert model_name in pretrained_models
     local_path = f'pretrained_models/{model_name}'
+
     if not os.path.isfile(local_path):
         os.makedirs('pretrained_models', exist_ok=True)
         web_path = f'https://dl.fbaipublicfiles.com/DiT/models/{model_name}'

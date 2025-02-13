@@ -24,11 +24,12 @@ def expand_t_like_x(t, x):
     return t
 
 class RectifiedFlow(torch.nn.Module):
-    def __init__(self, ln=False):
+    def __init__(self, model, ln=False):
         super().__init__()
         self.ln = ln
+        self.model = model
 
-    def forward(self, model, x, cond):
+    def forward(self, x, cond):
 
         b = x.size(0)
         z1 = x
@@ -42,7 +43,7 @@ class RectifiedFlow(torch.nn.Module):
         d_sigma_t = -1
         ut = d_alpha_t * z1 + d_sigma_t * z0
         zt = alpha_t * z1 + sigma_t * z0
-        model_output = model(zt, t, cond) 
+        model_output = self.model(zt, t, cond) 
 
         terms = {}
         terms["loss"] = 0
@@ -75,9 +76,6 @@ class RectifiedFlow(torch.nn.Module):
 
         return terms
 
-
-
-
     @torch.no_grad()
     def sample(self, z, cond, null_cond=None, sample_steps=50, cfg=2.0, progress=False, mode='euler'):
         print(f'Using {mode} Sampler')
@@ -89,12 +87,14 @@ class RectifiedFlow(torch.nn.Module):
         # Use tqdm for progress bar if progress is True
         loop_range = tqdm(range(0, sample_steps, 1), desc="Sampling") if progress else range(0, sample_steps, 1)
 
+
         def fn(z, t, cond):
             vc = self.model(z, t, cond)
             if isinstance(vc, tuple):
                 vc = vc[0]
-            if self.learn_sigma == True:
+            if vc.shape[1] != z.shape[1]:
                 vc, _ = vc.chunk(2, dim=1)
+
             return vc
 
         def fn_v(z, t):
@@ -155,31 +155,4 @@ class RectifiedFlow(torch.nn.Module):
                     raise NotImplementedError(f"Mode '{mode}' is not implemented.")
             images.append(z)
 
-        return images
-
-    @torch.no_grad()
-    def sample_with_xps(self, z, cond, null_cond=None, sample_steps=50, cfg=2.0, progress=False):
-        b = z.size(0)
-        dt = 1.0 / sample_steps
-        dt = torch.tensor([dt] * b).to(z.device).view([b, *([1] * len(z.shape[1:]))])
-        images = [z]
-
-        loop_range = tqdm(range(0, sample_steps, 1), desc="Sampling") if progress else range(0, sample_steps, 1)
-
-        for i in loop_range:
-            t = i / sample_steps
-            t = torch.tensor([t] * b).to(z.device)
-
-            vc = self.model(z, t, cond)
-            if self.learn_sigma == True:
-                vc, _ = vc.chunk(2, dim=1)
-            if null_cond is not None:
-                vu = self.model(z, t, null_cond)
-                if self.learn_sigma == True:
-                    vu, _ = vu.chunk(2, dim=1)
-                vc = vu + cfg * (vc - vu)
-
-            x = z + i * dt * vc
-            z = z + dt * vc
-            images.append(x)
         return images
