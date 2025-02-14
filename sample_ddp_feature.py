@@ -235,7 +235,7 @@ def main(args):
             activations = np.concatenate(activations)
             print(activations.shape)
             assert activations.shape == (num, 2048)
-            npz_path = f"sml_samples/{folder_name}.npz" # save both samples and statistics
+            npz_path = f"samples/{folder_name}.npz" # save both samples and statistics
             mu = np.mean(activations, axis=0)
             sigma = np.cov(activations, rowvar=False)
             np.savez(npz_path, activations=activations, mu=mu, sigma=sigma)

@@ -50,11 +50,10 @@ DiffMoE Architecture Overview. DiffMoE flattens tokens into a batch-level global
 
 This repo contains:
 
-<!-- * 🪐 A simple PyTorch implementation of [MAR](models/mar.py) and [DiffLoss](models/diffloss.py) -->
-<!-- * ⚡️ Pre-trained class-conditional MAR models trained on ImageNet 256x256 -->
-<!-- * 💥 A self-contained [Colab notebook](http://colab.research.google.com/github/LTH14/mar/blob/main/demo/run_mar.ipynb) for running various pre-trained MAR models -->
-<!-- * 🛸 An MAR+DiffLoss [training and evaluation script](main_mar.py) using PyTorch DDP -->
-<!-- * 🎉 Also checkout our [Hugging Face model cards](https://huggingface.co/jadechoghari/mar) and [Gradio demo](https://huggingface.co/spaces/jadechoghari/mar) (thanks [@jadechoghari](https://github.com/jadechoghari)). -->
+* 🪐 A simple PyTorch implementation of [Dense-DiT](models/models_DiT.pu),[EC-DiT](models/models_ECDiT.py),[TC-DiT](models/models_TCDiT.py),[DifffMoE](models/models_DiffMoE.py)
+* ⚡️ Pre-trained class-conditional DiffMoE models trained on ImageNet 256x256 and 512x512
+* 🛸 An DiffMoE [training and evaluation script](train.py) using PyTorch DDP
+* 🎉 Also checkout our [Hugging Face model cards](xxxxx).
 
 
 ### To-do list
@@ -93,13 +92,16 @@ For convenience, our pre-trained baseline and DiffMoE models can be downloaded d
 
 
 | Model Name                 | # Avg. Act. Params | Training Step | CFG | FID-50K↓  | Inception Score↑ |
-|----------------------------|-------------------------|-------------|-----|---------|-----------------|
-| [TC-DiT-L-E16-Flow](x)    | 458M                    | 700K        | 1.0 | 19.06   | 73.49           |
-| [EC-DiT-L-E16-Flow](x)    | 458M                    | 700K        | 1.0 | 16.12   | 82.37           |
-| [Dense-DiT-L-Flow](x)     | 458M                    | 700K        | 1.0 | 17.01   | 1.0            |
-| [Dense-DiT-XL-Flow](x)    | 675M                    | 700K        | 1.0 | 14.77   | 1.0            |
-| [DiffMoE-L-E16-Flow](x)   | 454M                    | 700K        | 1.0 | 14.41   | 88.19           |
-| [DiffMoE-L-E16-Flow](x)   | ???                     | ???         | ??? | ???     | ???            |
+|----------------------------|-------------------------|-------------|-----|---------|----------------|
+| [TC-DiT-L-E16-Flow](x)    | 458M               | 700K        | 1.0 | 19.06   | 73.49           |
+| [EC-DiT-L-E16-Flow](x)    | 458M               | 700K        | 1.0 | 16.12   | 82.37           |
+| [Dense-DiT-L-Flow](x)     | 458M               | 700K        | 1.0 | 17.01   | 78.17           |
+| [Dense-DiT-XL-Flow](x)    | 675M               | 700K        | 1.0 | 14.77   | 86.82           |
+| [DiffMoE-L-E16-Flow](x)   | 454M               | 700K        | 1.0 | 14.41   | 88.19           |
+| [Dense-DiT-XL-Flow](x)   | 458M                | 7000K       | 1.0 | 9.47 | 115.58         |
+| [DiffMoE-L-E8-Flow](x)   | 458M                | 7000K       | 1.0 | 9.60 | 131.45         |
+| [Dense-DiT-XL-DDPM](x)   | 458M                | 7000K       | 1.0 | 9.62 | 123.19         |
+| [DiffMoE-L-E8-DDPM](x)   | 458M                | 7000K       | 1.0 | 9.17 | 131.10         |
 
 
 ### (Optional) Caching VAE Latents
@@ -133,11 +135,10 @@ python demo/gradio_app.py
 ### Training
 Script for the default setting (MAR-L, DiffLoss MLP with 3 blocks and a width of 1024 channels, 400 epochs):
 ```
-torchrun --nproc_per_node=8 --nnodes=1 --node_rank=0 \
-train.py \
---config ../config/000_DiffMoE_S_E16_Flow.yaml
-
+torchrun --nproc_per_node=4 --nnodes=1 --node_rank=0 \
+train.py --config ./config/000_DiffMoE_S_E16_Flow.yaml
 ```
+
 <!-- 
 - Training time is ~1d7h on 32 H100 GPUs with `--batch_size 64`.
 - Add `--online_eval` to evaluate FID during training (every 40 epochs).
@@ -151,9 +152,14 @@ Comeing soon, stay tuned !
 
 Evaluate DiffMoE:
 
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nnodes=1 --nproc_per_node=8 sample_ddp_feature.py --image-size 256 \
-    --per-proc-batch-size 125 --num-fid-samples 50000 --cfg-scale 1.0 --num-sampling-steps 250 --sample-dir /m2v_intern/shiminglei/DiffMoE/samples \
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
+torchrun --nnodes=1 --nproc_per_node=8 \
+sample_ddp_feature.py --image-size 256 \
+    --per-proc-batch-size 125 --num-fid-samples 50000 --cfg-scale 1.0 --num-sampling-steps 250 --sample-dir samples \
     --ckpt exps/EXPNAME/checkpoints/xxxxxx.pt
+```
+
 
 
 <!-- 
