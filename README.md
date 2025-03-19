@@ -93,7 +93,7 @@ conda activate diffmoe
 <!-- python util/download.py -->
 <!-- ``` -->
 
-For convenience, our pre-trained baseline and DiffMoE models can be downloaded directly here as well:
+Pre-trained models are Coming soon, stay tuned !
 
 
 | Model Name                 | # Avg. Act. Params | Training Step | CFG | FID-50K↓  | Inception Score↑ |
