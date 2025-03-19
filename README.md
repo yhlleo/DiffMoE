@@ -25,14 +25,14 @@ _**[Minglei Shi<sup>1*</sup>](https://github.com/shiml20/), [Ziyang Yuan<sup>1*<
 
 
 ## 🔥 Updates
-- __[2025.x.x]__: Release the [project page](https://shiml20.github.io/DiffMoE/) of DiffMoE
+- __[2025.3.19]__: Release the [project page](https://shiml20.github.io/DiffMoE/) of DiffMoE
 
 <!-- This is a PyTorch/GPU implementation of the paper [DiffMoE](xxxx) -->
 
 
 ## 📖 Introduction
 
-**TL;DR:** DiffMoE is a dynamic MoE Transformer that outperforms 1.5× larger dense models in diffusion tasks, using global token pool and adaptive routing while keeping 1× parameter activation.  <br>
+**TL;DR:** DiffMoE is a dynamic MoE Transformer that outperforms 3× larger dense models in diffusion tasks, using global token pool and adaptive routing while keeping 1× parameter activation.  <br>
 
 
 This repo contains:
@@ -180,10 +180,13 @@ We thank [Zihan, Qiu](https://scholar.google.com/citations?user=24eVHiYAAAAJ&hl=
 ## 🌟 Citation
 
 ```
-@article{shi2025diffmoe,
-  title={DiffMoE: Dynamic Token Selection for Scalable Diffusion Transformers},
-  author={Shi, Minglei and Yuan, Ziyang and Yang, Haotian and Wang, Xintao and Zheng, Mingwu and Tao,  Xin and Zhao, Wenliang and Zheng, Wenzhao and Zhou, Jie and Lu, Jiwen and Wan, Pengfei and ZHANG, Di and Gai, Kun },
-  journal={arXiv preprint arXiv:xxxx},
-  year={2025}
+@misc{shi2025diffmoedynamictokenselection,
+      title={DiffMoE: Dynamic Token Selection for Scalable Diffusion Transformers}, 
+      author={Minglei Shi and Ziyang Yuan and Haotian Yang and Xintao Wang and Mingwu Zheng and Xin Tao and Wenliang Zhao and Wenzhao Zheng and Jie Zhou and Jiwen Lu and Pengfei Wan and Di Zhang and Kun Gai},
+      year={2025},
+      eprint={2503.14487},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.14487}, 
 }
 ```
