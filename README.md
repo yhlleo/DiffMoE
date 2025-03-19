@@ -13,7 +13,7 @@
 <img src="figs/logo.png" width="65%"/>
 </div>
 
-### [<a href="https://arxiv.org/abs/xxx" target="_blank">arXiv</a>] [<a href="https://shiml20.github.io/DiffMoE/" target="_blank">Project Page</a>] [<a href="https://huggingface.co/datasets/KwaiVGI/DiffMoE/" target="_blank">Model</a>]
+### [<a href="https://huggingface.co/papers/2503.14487" target="_blank">arXiv</a>] [<a href="https://shiml20.github.io/DiffMoE/" target="_blank">Project Page</a>] [<a href="https://huggingface.co/datasets/KwaiVGI/DiffMoE/" target="_blank">Code</a>]
 
 _**[Minglei Shi<sup>1*</sup>](https://github.com/shiml20/), [Ziyang Yuan<sup>1*</sup>](https://scholar.google.ru/citations?user=fWxWEzsAAAAJ&hl=en), [Haotian Yang<sup>2</sup>](https://scholar.google.ru/citations?user=fWxWEzsAAAAJ&hl=en), [Xintao Wang<sup>2†</sup>](https://xinntao.github.io/),  [Mingwu Zheng<sup>2</sup>](https://scholar.google.com.hk/citations?user=MdizB60AAAAJ&hl=en), [Xin Tao<sup>2</sup>](https://www.xtao.website/), [Wenliang Zhao<sup>1</sup>](https://wl-zhao.github.io/), [Wenzhao Zheng<sup>1</sup>](https://wzzheng.net/), [Jie Zhou<sup>1</sup>](https://www.imem.tsinghua.edu.cn/info/1330/2128.htm),[Jiwen Lu<sup>1†</sup>](https://www.au.tsinghua.edu.cn/info/1078/3156.htm), [Pengfei Wan<sup>2</sup>](https://scholar.google.com/citations?user=P6MraaYAAAAJ&hl=en), [Di Zhang<sup>2</sup>](https://openreview.net/profile?id=~Di_ZHANG3), [Kun Gai<sup>2</sup>](https://scholar.google.com/citations?user=PXO4ygEAAAAJ&hl=zh-CN)**_
 <br>
