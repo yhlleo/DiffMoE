@@ -109,7 +109,7 @@ Pre-trained models are Coming soon, stay tuned !
 | [DiffMoE-L-E8-DDPM](x)   | 458M                | 7000K       | 1.0 | 9.17 | 131.10         |
 
 
-### (Optional) Caching VAE Latents
+<!-- ### (Optional) Caching VAE Latents
 
 Given that our data augmentation consists of simple center cropping and random flipping, 
 the VAE latents can be pre-computed and saved to `CACHED_PATH` to save computations during DiffMoE training:
@@ -120,7 +120,7 @@ main_cache.py \
 --img_size 256 --vae_path stabilityai/sd-vae-ft-mse \
 --batch_size 128 \
 --data_path ${IMAGENET_PATH} --cached_path ${CACHED_PATH}
-```
+``` -->
 
 ## Usage
 
