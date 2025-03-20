@@ -130,11 +130,6 @@ class SparseMoEBlock(nn.Module):
         identity = hidden_states
         orig_shape = hidden_states.shape
         topk_idx, topk_weight, aux_loss = self.gate(hidden_states) 
-        # print(topk_idx.tolist(), print(len(topk_idx.tolist()))) 
-        # global selected_ids_list
-        # selected_ids_list.append(topk_idx.tolist())
-        # print(selected_ids_list)
-        # import pdb; pdb.set_trace()
 
         hidden_states = hidden_states.view(-1, hidden_states.shape[-1])
         flat_topk_idx = topk_idx.view(-1)
