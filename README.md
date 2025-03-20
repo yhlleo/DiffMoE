@@ -98,15 +98,15 @@ Pre-trained models are Coming soon, stay tuned !
 
 | Model Name                 | # Avg. Act. Params | Training Step | CFG | FID-50K↓  | Inception Score↑ |
 |----------------------------|-------------------------|-------------|-----|---------|----------------|
-| [TC-DiT-L-E16-Flow](x)    | 458M               | 700K        | 1.0 | 19.06   | 73.49           |
-| [EC-DiT-L-E16-Flow](x)    | 458M               | 700K        | 1.0 | 16.12   | 82.37           |
-| [Dense-DiT-L-Flow](x)     | 458M               | 700K        | 1.0 | 17.01   | 78.17           |
-| [Dense-DiT-XL-Flow](x)    | 675M               | 700K        | 1.0 | 14.77   | 86.82           |
-| [DiffMoE-L-E16-Flow](x)   | 454M               | 700K        | 1.0 | 14.41   | 88.19           |
-| [Dense-DiT-XL-Flow](x)   | 458M                | 7000K       | 1.0 | 9.47 | 115.58         |
-| [DiffMoE-L-E8-Flow](x)   | 458M                | 7000K       | 1.0 | 9.60 | 131.45         |
-| [Dense-DiT-XL-DDPM](x)   | 458M                | 7000K       | 1.0 | 9.62 | 123.19         |
-| [DiffMoE-L-E8-DDPM](x)   | 458M                | 7000K       | 1.0 | 9.17 | 131.10         |
+| TC-DiT-L-E16-Flow   | 458M               | 700K        | 1.0 | 19.06   | 73.49           |
+| EC-DiT-L-E16-Flow    | 458M               | 700K        | 1.0 | 16.12   | 82.37           |
+| Dense-DiT-L-Flow     | 458M               | 700K        | 1.0 | 17.01   | 78.17           |
+| Dense-DiT-XL-Flow   | 675M               | 700K        | 1.0 | 14.77   | 86.82           |
+| DiffMoE-L-E16-Flow   | 454M               | 700K        | 1.0 | 14.41   | 88.19           |
+| Dense-DiT-XL-Flow   | 458M                | 7000K       | 1.0 | 9.47 | 115.58         |
+| DiffMoE-L-E8-Flow   | 458M                | 7000K       | 1.0 | 9.60 | 131.45         |
+| Dense-DiT-XL-DDPM   | 458M                | 7000K       | 1.0 | 9.62 | 123.19         |
+| DiffMoE-L-E8-DDPM   | 458M                | 7000K       | 1.0 | 9.17 | 131.10         |
 
 
 <!-- ### (Optional) Caching VAE Latents
