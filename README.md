@@ -153,7 +153,6 @@ Training time with cached latents is ~1d11h on 16 H100 GPUs with `--batch_size 1
 Note that this may slightly reduce training speed. -->
 
 ### Evaluation (ImageNet 256x256)
-Comeing soon, stay tuned !
 
 Evaluate DiffMoE:
 
