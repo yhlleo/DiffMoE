@@ -124,13 +124,13 @@ main_cache.py \
 
 ## Usage
 
-### Demo
+<!-- ### Demo -->
 <!-- Run our interactive visualization [demo](http://colab.research.google.com/github/LTH14/mar/blob/main/demo/run_mar.ipynb) using Colab notebook! -->
-Comeing soon, stay tuned !
+<!-- Comeing soon, stay tuned ! -->
 
-### Local Gradio App
+<!-- ### Local Gradio App -->
 
-Comeing soon, stay tuned !
+<!-- Comeing soon, stay tuned ! -->
 
 <!-- ```
 python demo/gradio_app.py 
