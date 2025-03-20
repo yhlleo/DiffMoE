@@ -38,7 +38,7 @@ _**[Minglei Shi<sup>1*</sup>](https://github.com/shiml20/), [Ziyang Yuan<sup>1*<
 
 This repo contains:
 
-* 🪐 A simple PyTorch implementation of [Dense-DiT](models/models_DiT.pu),[EC-DiT](models/models_ECDiT.py),[TC-DiT](models/models_TCDiT.py),[DifffMoE](models/models_DiffMoE.py)
+* 🪐 A simple PyTorch implementation of [Dense-DiT](models/models_DiT.pu), [EC-DiT](models/models_ECDiT.py), [TC-DiT](models/models_TCDiT.py), [DifffMoE](models/models_DiffMoE.py)
 <!-- * ⚡️ Pre-trained class-conditional DiffMoE models trained on ImageNet 256x256 and 512x512 -->
 * 🛸 An DiffMoE [training and evaluation script](train.py) using PyTorch DDP
 <!-- * 🎉 Also checkout our [Hugging Face model cards](xxxxx). -->
